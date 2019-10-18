@@ -1,0 +1,252 @@
+
+/******************************************************************************
+Hacer un menu con todos los programas realizados
+*******************************************************************************/
+#include <stdio.h>
+#include <math.h>
+#define pi 3.1416
+#define tarHoras 40
+void main()
+{
+    int op,edad, voto, cantV1=0, cantV2=0, cantV3=0, cantV4=0, cantV5=0, total=0, cedula, horas;
+    char nombre[10], desP1[10], desP2[10];
+    float nivelHem, porcV1=0, porcV2=0, porcV3=0, porcV4=0, porcV5=0, cantP1, cantP2, precioP1, precioP2, pVtaP1, pVtaP2, subtotal =0, iva, tot= 0, radio, area=0, cent, far, gradosCent=0, gradosFar=0, salBruto=0, salNeto=0, imp25=0, imp45=0, base, alt, x1=0, x2=0, a, b, c;
+    printf("1.Mayor de edad\n2.Labratorio Clinico\n3.Voto Electoral\n4.Factura\n5.Area de un Circulo\n6.Hola Mundo con Asteriscos\n7.Conversion de Temperatura\n8.Salario\n9.Ecuacion Cuadraica y Area de Triangulo\n");
+    printf("Escoja la opcion:");
+    scanf("%d",&op);
+    fflush(stdin);
+    switch(op)
+    {
+        case 1:
+        printf("Ingrese su nombre:");
+        gets(nombre);
+        printf("Ingrese su edad:");
+        scanf("%d",&edad);
+        if(edad>=18)
+            printf("%s Es mayor de edad", nombre);
+        else
+            printf("%s Es menor de edad", nombre);
+        
+        break;
+        case 2:
+        printf("Menu Principal\n1.Edad en meses\n2. Edad en años\n");
+        printf("Escoja la opcion:");
+        scanf("%d",&op);
+        if(op==1)
+        {
+            printf("Ingrese la edad en meses:");
+            scanf("%d",&edad);
+            printf("Ingrese el nivel de Hemoglobina:");
+            scanf("%f",&nivelHem);
+            if(edad>=0 && edad<=1 && nivelHem>=13 && nivelHem<=26)
+                printf("No tiene anemia");
+            else if (edad>1 && edad<=6 && nivelHem>=10 && nivelHem<=18)
+                printf("No tiene anemia");
+            else if (edad>6 && edad<=12 && nivelHem>=11 && nivelHem<=15)
+                printf("No tiene anemia");
+            else
+            printf ("Tiene anemia");
+        }
+        else if(op==2)
+        {
+            printf("Ingrese la edad en años:");
+            scanf("%d",&edad);
+            printf("Ingrese el nivel de Hemoglobina:");
+            scanf("%f",&nivelHem);
+            if(edad>1 && edad<=5 && nivelHem>=11.5 && nivelHem<=15)
+                printf("No tiene anemia");
+            else if (edad>5 && edad<=10 && nivelHem>=12.6 && nivelHem<=15.5)
+                printf("No tiene anemia");
+            else if (edad>10 && edad<=15 && nivelHem>=13 && nivelHem<=15.5)
+                printf("No tiene anemia");
+            else
+                printf("Tiene anemia");
+        }
+        
+        break;
+        case 3:
+        printf ("Ingrese su voto:");
+        scanf("%d",&voto);
+        if(voto==1)
+            cantV1++;
+        else if(voto==2)
+            cantV2++;
+        else if(voto==3)
+            cantV3++;
+        else if(voto==4)
+            cantV4++;
+        else if(voto==5)
+            cantV5++;
+    
+        total=cantV1+cantV2+cantV3+cantV4+cantV5;
+        porcV1=(cantV1/total)*100;
+        porcV2=(cantV2/total)*100;
+        porcV3=(cantV3/total)*100;
+        porcV4=(cantV4/total)*100;
+        porcV5=(cantV5/total)*100;
+    
+        printf("total de Votos del Candidato 1 es: %d tiene un porcetaje de %.2f\n", cantV1, porcV1);
+        printf("total de Votos del Candidato 2 es: %d tiene un porcetaje de %.2f\n", cantV2, porcV2);
+        printf("total de Votos del Candidato 3 es: %d tiene un porcetaje de %.2f\n", cantV3, porcV3);
+        printf("total de Votos del Candidato 4 es: %d tiene un porcetaje de %.2f\n", cantV4, porcV4);
+        printf("total de Votos del Candidato 5 es: %d tiene un porcetaje de %.2f\n", cantV5, porcV5);
+        
+        break;
+        case 4:
+        printf ("Ingrese el nombre del cliente:");
+        scanf ("%s", &nombre);
+        printf ("Ingrese la cedula:");
+        scanf ("%d", &cedula);
+        printf ("Datos del Producto1\n");
+        printf ("Ingrese la descripcion:");
+        scanf ("%s", &desP1);
+        printf ("Ingrese la cantidad:");
+        scanf ("%f", &cantP1);
+        printf ("Ingrese el precio:");
+        scanf ("%f", &precioP1);
+        printf ("Datos del Producto2\n");
+        printf ("Ingrese la descripcion:");
+        scanf ("%s", &desP2);
+        printf ("Ingrese la cantidad:");
+        scanf ("%f", &cantP2);
+        printf ("Ingrese el precio:");
+        scanf ("%f", &precioP2);
+        pVtaP1 = cantP1 * precioP1;
+        pVtaP2 = cantP2 * precioP2;
+        subtotal = pVtaP1 + pVtaP2;
+        iva = subtotal * 0.12;
+        tot = subtotal + iva;
+        printf ("\t\t******FACTURA******\n");
+        printf ("Cliente: %s\n", nombre);
+        printf ("Cedula:%d\n", cedula);
+        printf ("Descripcion\tCantidad\tPrecio\tPVta\n");
+        printf ("%s\t\t%.2f\t\t%.2f\t%.2f\n", desP1, cantP1, precioP1, pVtaP1);
+        printf ("%s\t%.2f\t\t%.2f\t%.2f\n", desP2, cantP2, precioP2, pVtaP2);
+        printf ("\t\t\tSubtotal:\t%.2f\n", subtotal);
+        printf("\t\t\tIva:\t\t%.2f\n",iva);
+        printf("\t\t\tTotal:\t\t%.2f\n",tot);
+        
+        break;
+        case 5:
+        printf("Ingrese el radio");
+        scanf("%f", &radio);
+        area=pi*radio*radio;
+        printf("El area es:%.2f", area);
+        
+        break;
+        case 6:
+        printf("*  *\t****\t*   \t****\t\t**   **\t*  *\t*   *\t*** \t****\n");
+        printf("*  *\t*  *\t*   \t*  *\t\t* * * *\t*  *\t**  *\t*  *\t*  *\n");
+        printf("****\t*  *\t*   \t****\t\t*  *  *\t*  *\t* * *\t*  *\t*  *\n");
+        printf("*  *\t*  *\t*   \t*  *\t\t*     *\t*  *\t*  **\t*  *\t*  *\n");
+        printf("*  *\t****\t****\t*  *\t\t*     *\t****\t*   *\t*** \t****\n");
+        
+        break;
+        case 7:
+        printf("Menu Principal\n1.Grados Centigrados a Farenheit\n2.Grados Fahrenheit a Centigrados\n");
+        printf("Escoja la opcion:");
+        scanf("%d",&op);
+        if(op==1)
+        {
+            printf("Ingrese los grados Centigrados");
+            scanf("%f", &cent);
+            gradosFar=((cent*9)/5)+32;
+            printf("Grados Centigrados=%.2f\n", gradosFar);
+        }
+        else
+        {
+            printf("Ingrese los grados Fahrenheit");
+            scanf("%f", &far);
+            gradosCent=((far-32)*5)/9;
+            printf("Grados Fahrenheit=%.2f", gradosCent);
+        }
+        
+        break;
+        case 8:
+        printf("Ingrese numero de horas:");
+        scanf("%d", &horas);
+        if (horas<=35)
+        {
+            salBruto=horas*tarHoras;
+            if (salBruto<=1000)
+            {
+                salNeto=salBruto;
+            }
+            else if (salBruto>1000 && salBruto<1500)
+            {
+                imp25=salBruto*0.25;
+                salNeto=salBruto-imp25;
+            }
+            else if (salBruto>=1500)
+            {
+                imp45=salBruto*0.45;
+                salNeto=salBruto-imp45;
+            }
+            printf("El salario bruto es: %2.f\n", salBruto);
+            printf("El impuesto a pagar es: %2.f\n", imp25);
+            printf("El impuesto a pagar es: %2.f\n", imp45);
+            printf("El salario neto es: %2.f", salNeto);
+        }
+        else 
+        {
+            salBruto=horas*tarHoras*1.5;
+            if (salBruto<=1000)
+            {
+                salNeto=salBruto;
+            }
+            else if (salBruto>1000 && salBruto<1500)
+            {
+                imp25=salBruto*0.25;
+                salNeto=salBruto-imp25;
+            }
+            else if (salBruto>=1500)
+            {
+                imp45=salBruto*0.45;
+                salNeto=salBruto-imp45;
+            }
+            printf("El salario bruto es: %2.f\n", salBruto);
+            printf("El impuesto a pagar es: %2.f\n", imp25);
+            printf("El impuesto a pagar es: %2.f\n", imp45);
+            printf("El salario neto es: %2.f", salNeto);
+        }
+        
+        break;
+        case 9:
+        printf("Menu Princincipal\n1.Ecuacion Cuadratica\n2.Area de un Triangulo\n");
+        printf("Escoja la opcion:");
+        scanf("%d", &op);
+        switch(op)
+        {
+            case 1:
+                printf("Ingrese el coeficiente a:");
+                scanf("%f", &a);
+                printf("Ingrese el coeficiente b:");
+                scanf("%f", &b);
+                printf("Ingrese el coeficiente c:");
+                scanf("%f", &c);
+                x1=((-b+sqrt(pow(b,2)-4*a*c))/2*a);
+                x1=((-b-sqrt(pow(b,2)-4*a*c))/2*a);
+                printf("El resultado de x1 es:%f\n", x1);
+                printf("El resultado de x2 es:%f\n", x2);
+                
+            break;
+            case 2:
+                printf("Ingrese la base:");
+                scanf("%f", &base);
+                printf("Ingrese la altura:");
+                scanf("%f", &alt);
+                area=(base*alt)/2;
+                printf("El area del triangulo es: %2.f", area);
+                
+            break;
+            default:
+                printf("Opcion incorrecta");
+                
+            break;
+        }
+        break;
+        default:
+        printf("Opcon Invalida");
+        break;
+    }
+}
